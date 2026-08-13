@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Peddle Plus Pricing Calculator</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<body>
+
+
+<div class="app-container">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <div class="logo-box">
+
+            <img
+                src="images/logo.png.png"
+                class="logo"
+                alt="Peddle Plus One ERP Logo"
+            >
+
+        </div>
+
+
+        <div class="header-center">
+
+            <h1>
+                Peddle Plus Pricing Calculator
+            </h1>
+
+            <p>
+                Smart Pricing.
+                <span>Accurate Quotation.</span>
+                Faster Deals.
+            </p>
+
+        </div>
+
+
+        <button
+            class="print-btn"
+            onclick="printQuotation()"
+        >
+            🖨 Print Quotation
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN FORM
+         ===================================================== -->
+
+    <main class="main">
+
+        <section class="form-area">
+
+
+            <!-- =================================================
+                 CUSTOMER INFORMATION
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    👤 Customer Information
+                </div>
+
+
+                <div class="customer-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Customer Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customer"
+                            placeholder="Customer Name"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Company Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            placeholder="Company Name"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Mobile Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            placeholder="Mobile Number"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Email Address"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Address Line 1
+                        </label>
+
+                        <input
+                            type="text"
+                            id="address1"
+                            placeholder="House / Shop / Building / Street"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Address Line 2
+                        </label>
+
+                        <input
+                            type="text"
+                            id="address2"
+                            placeholder="Area / Landmark"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            City *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="City"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            placeholder="State"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Pincode
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="Pincode"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            GSTIN
+                        </label>
+
+                        <input
+                            type="text"
+                            id="gstin"
+                            placeholder="GSTIN"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BUSINESS TYPE
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    🏢 Business Type
+
+                    <small>
+                        (Select Multiple)
+                    </small>
+
+                </div>
+
+
+                <div class="check-grid">
+
+
+                    <label class="check-item">
+
+                        <input
+                            type="checkbox"
+                            name="businessType"
+                            value="B2C"
+                        >
+
+                        <span>B2C</span>
+
+                    </label>
+
+
+                    <label class="check-item">
+
+                        <input
+                            type="checkbox"
+                            name="businessType"
+                            value="B2B"
+                        >
+
+                        <span>B2B</span>
+
+                    </label>
+
+
+                    <label class="check-item">
+
+                        <input
+                            type="checkbox"
+                            name="businessType"
+                            value="O2O"
+                        >
+
+                        <span>O2O</span>
+
+                    </label>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SEGMENT TYPE
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    📊 Segment Type
+
+                    <small>
+                        (Select Multiple)
+                    </small>
+
+                </div>
+
+
+                <div class="check-grid">
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Retail"
+                        >
+                        <span>Retail</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Wholesale"
+                        >
+                        <span>Wholesale</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Distribution"
+                        >
+                        <span>Distribution</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Manufacturing"
+                        >
+                        <span>Manufacturing</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Pharmacy"
+                        >
+                        <span>Pharmacy</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Garments"
+                        >
+                        <span>Garments</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Footwear"
+                        >
+                        <span>Footwear</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Electronics"
+                        >
+                        <span>Electronics</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Supermarket"
+                        >
+                        <span>Supermarket</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Furniture"
+                        >
+                        <span>Furniture</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="FMCG"
+                        >
+                        <span>FMCG</span>
+                    </label>
+
+
+                    <label class="check-item">
+                        <input
+                            type="checkbox"
+                            name="segmentType"
+                            value="Other"
+                        >
+                        <span>Other</span>
+                    </label>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 COMMERCIAL SETUP
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="three-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Number of Stores / Locations
+                        </label>
+
+                        <input
+                            type="number"
+                            id="stores"
+                            value="1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Number of System Users
+                        </label>
+
+                        <input
+                            type="number"
+                            id="users"
+                            value="1"
+                            min="1"
+                        >
+
+                        <div
+                            class="field-note"
+                            id="systemUserInfo"
+                        >
+                            1 System User Included
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Server Type
+                        </label>
+
+                        <select id="server">
+
+                            <option value="Local Server">
+                                Local Server - Offline
+                            </option>
+
+                            <option value="Cloud Server">
+                                Cloud Server - Online
+                            </option>
+
+                        </select>
+
+                        <div
+                            class="field-note"
+                            id="cloudInfo"
+                        >
+                            Local Server - Offline
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- MULTI COMPANY -->
+
+                <div class="company-box">
+
+                    <div class="field">
+
+                        <label>
+                            Number of Companies
+                        </label>
+
+                        <input
+                            type="number"
+                            id="multiCompany"
+                            value="1"
+                            min="1"
+                        >
+
+                        <div class="field-note">
+
+                            Each company uses the same ERP
+                            package price.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ERP PACKAGE
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    📦 ERP Package
+
+                </div>
+
+
+                <div class="package-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select
+                            id="category"
+                        ></select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Package
+                        </label>
+
+                        <select
+                            id="package"
+                        ></select>
+
+
+                        <div
+                            id="packageInfo"
+                            class="package-info"
+                        ></div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ADDONS
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    🛒 E-commerce & Integration Add-ons
+
+                </div>
+
+
+                <div class="addon-grid">
+
+
+                    <!-- ECOMMERCE -->
+
+                    <div class="field">
+
+                        <label>
+                            E-commerce Builder
+                        </label>
+
+                        <select id="ecommerce">
+
+                            <option value="0">
+                                Not Required
+                            </option>
+
+                            <option value="20000">
+                                Peddle Plus E-commerce Builder - ₹20,000
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SHOPIFY -->
+
+                    <div class="field">
+
+                        <label>
+                            Shopify Integration
+                        </label>
+
+                        <select id="shopify">
+
+                            <option value="0">
+                                Not Required
+                            </option>
+
+                            <option value="30000">
+                                Shopify Integration - ₹30,000
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MARKETPLACE -->
+
+                    <div class="field platform-field">
+
+                        <label>
+                            Marketplace / Platform Integration
+                        </label>
+
+
+                        <div class="platform-box">
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Amazon"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    Amazon
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Flipkart"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    Flipkart
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Meesho"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    Meesho
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="AJIO"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    AJIO
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Nykaa"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    Nykaa
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Tata CLiQ"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    Tata CLiQ
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="WooCommerce"
+                                    data-price="25000"
+                                >
+
+                                <span>
+                                    WooCommerce
+                                </span>
+
+                                <b>
+                                    ₹25,000
+                                </b>
+
+                            </label>
+
+
+                            <label class="platform-item">
+
+                                <input
+                                    type="checkbox"
+                                    class="platform-check"
+                                    data-name="Other Platform"
+                                    data-price="0"
+                                >
+
+                                <span>
+                                    Other Platform
+                                </span>
+
+                                <b>
+                                    Contact Us
+                                </b>
+
+                            </label>
+
+
+                        </div>
+
+
+                        <div class="package-info">
+                            Multiple platforms select kar sakte hain.
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- UNICOMMERCE -->
+
+                    <div class="field">
+
+                        <label>
+                            Unicommerce Integration
+                        </label>
+
+                        <select id="unicommerce">
+
+                            <option value="0">
+                                Not Required
+                            </option>
+
+                            <option value="50000">
+                                Unicommerce Integration - ₹50,000
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 OTHER COMMERCIAL
+                 ================================================= -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    💰 Commercial Details
+
+                </div>
+
+
+                <div class="commercial-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Customization Man-Days
+                        </label>
+
+                        <input
+                            type="number"
+                            id="customization"
+                            value="0"
+                            min="0"
+                        >
+
+                        <div class="field-note">
+                            ₹3,500 per man-day
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Extra Cloud Storage (GB)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="cloudStorage"
+                            value="0"
+                            min="0"
+                        >
+
+                        <div class="field-note">
+                            ₹5,000 per GB
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            License Transfer / Reactivation
+                        </label>
+
+                        <input
+                            type="number"
+                            id="licenseTransfer"
+                            value="0"
+                            min="0"
+                        >
+
+                        <div class="field-note">
+                            ₹2,000 per license
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Discount (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="discount"
+                            value="0"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    class="calculate-btn"
+                    onclick="calculatePrice()"
+                >
+                    🧮 Calculate Final Price
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         QUOTATION
+         ===================================================== -->
+
+    <section
+        id="quotationFooter"
+        class="quotation-footer"
+    >
+
+        <div class="quotation-paper">
+
+
+            <!-- QUOTATION HEADER -->
+
+            <div class="quotation-header">
+
+
+                <img
+                    src="images/logo.png.png"
+                    class="quotation-logo"
+                    alt="Peddle Plus Logo"
+                >
+
+
+                <div>
+
+                    <h2>
+                        Peddle Plus One ERP
+                    </h2>
+
+                    <p>
+                        QUOTATION
+                    </p>
+
+
+                    <div class="company-details">
+
+                        <strong>
+                            Nexme Retailtech Private Limited
+                        </strong>
+
+                        <span>
+                            www.peddleplus.in
+                        </span>
+
+                        <span>
+                            +91-11-41403525
+                        </span>
+
+                        <span>
+                            support@peddleplus.in
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quotation-meta">
+
+                    <div>
+                        <b>Quotation No.</b>
+                        <span id="fQuotationNo">-</span>
+                    </div>
+
+                    <div>
+                        <b>Date</b>
+                        <span id="fQuotationDate">-</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="quotation-line"></div>
+
+
+
+            <!-- CUSTOMER -->
+
+            <h3 class="quote-heading">
+                Customer Details
+            </h3>
+
+
+            <div class="quotation-customer">
+
+
+                <div>
+                    <strong>
+                        Customer Name
+                    </strong>
+
+                    <span id="fCustomer">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        Company
+                    </strong>
+
+                    <span id="fCompany">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        Mobile
+                    </strong>
+
+                    <span id="fMobile">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        Email
+                    </strong>
+
+                    <span id="fEmail">
+                        -
+                    </span>
+                </div>
+
+
+                <div class="customer-address">
+
+                    <strong>
+                        Address
+                    </strong>
+
+                    <span id="fAddress">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+                    <strong>
+                        City
+                    </strong>
+
+                    <span id="fCity">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        State
+                    </strong>
+
+                    <span id="fState">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        Pincode
+                    </strong>
+
+                    <span id="fPincode">
+                        -
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        GSTIN
+                    </strong>
+
+                    <span id="fGSTIN">
+                        -
+                    </span>
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BUSINESS -->
+
+            <h3 class="quote-heading">
+                Business & System Details
+            </h3>
+
+
+            <div class="quotation-business">
+
+
+                <div>
+
+                    <strong>
+                        Business Type
+                    </strong>
+
+                    <span id="fBusiness">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Segment Type
+                    </strong>
+
+                    <span id="fSegment">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Stores / Locations
+                    </strong>
+
+                    <span id="fStores">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        System Users
+                    </strong>
+
+                    <span id="fUsers">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Companies
+                    </strong>
+
+                    <span id="fCompanies">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Server
+                    </strong>
+
+                    <span id="fServer">
+                        -
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PRICING -->
+
+            <h3 class="quote-heading">
+                Pricing Details
+            </h3>
+
+
+            <div class="quotation-table">
+
+
+                <div class="table-head">
+
+                    <span>
+                        Description
+                    </span>
+
+                    <span>
+                        Amount
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowPackage"
+                >
+
+                    <span>
+                        ERP Package
+                    </span>
+
+                    <strong id="fPackage">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowUsers"
+                >
+
+                    <span>
+                        Additional System Users
+                    </span>
+
+                    <strong id="fUsersAddon">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowCloud"
+                >
+
+                    <span>
+                        Cloud Subscription - 1 Year
+                    </span>
+
+                    <strong id="fCloud">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowEcommerce"
+                >
+
+                    <span>
+                        E-commerce Builder
+                    </span>
+
+                    <strong id="fEcommerce">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowShopify"
+                >
+
+                    <span>
+                        Shopify Integration
+                    </span>
+
+                    <strong id="fShopify">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="platformQuotationRows"
+                ></div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowUnicommerce"
+                >
+
+                    <span>
+                        Unicommerce
+                    </span>
+
+                    <strong id="fUnicommerce">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowCustomization"
+                >
+
+                    <span>
+                        Customization
+                    </span>
+
+                    <strong id="fCustomization">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowStorage"
+                >
+
+                    <span>
+                        Extra Cloud Storage
+                    </span>
+
+                    <strong id="fStorage">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row"
+                    id="rowTransfer"
+                >
+
+                    <span>
+                        License Transfer / Reactivation
+                    </span>
+
+                    <strong id="fTransfer">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="charge-row total-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="fSubtotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="charge-row discount-row"
+                    id="rowDiscount"
+                >
+
+                    <span>
+                        Discount
+                    </span>
+
+                    <strong id="fDiscount">
+                        -₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="charge-row">
+
+                    <span>
+                        Taxable Amount
+                    </span>
+
+                    <strong id="fTaxable">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="charge-row">
+
+                    <span>
+                        GST (18%)
+                    </span>
+
+                    <strong id="fGST">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- GRAND TOTAL -->
+
+            <div class="grand-total">
+
+                <span>
+                    Grand Total
+                </span>
+
+                <strong id="fTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RENEWAL
+                 ================================================= -->
+
+            <div class="renewal-box">
+
+
+                <h3>
+                    Renewal / Next Year
+                </h3>
+
+
+                <p class="renewal-note">
+
+                    First year AMC is ₹0.
+                    After 365 days, AMC is 25% of
+                    the software license value.
+
+                </p>
+
+
+                <div class="renewal-row">
+
+                    <span>
+                        AMC Renewal - 25%
+                    </span>
+
+                    <strong id="fRenewalAMC">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="renewal-row" id="rowRenewalCloud">
+
+                    <span>
+                        Cloud Renewal - 1 Year
+                    </span>
+
+                    <strong id="fRenewalCloud">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="renewal-row">
+
+                    <span>
+                        GST (18%)
+                    </span>
+
+                    <strong id="fRenewalGST">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="renewal-total">
+
+                    <span>
+                        Renewal Total
+                    </span>
+
+                    <strong id="fRenewalTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BANK DETAILS
+                 ================================================= -->
+
+            <div class="bank-payment-section">
+
+
+                <div class="bank-details">
+
+                    <h3>
+                        GST & Bank Account Details
+                    </h3>
+
+
+                    <div class="bank-row">
+
+                        <strong>
+                            GST No.
+                        </strong>
+
+                        <span>
+                            07AAGCN6000Q1Z8
+                        </span>
+
+                    </div>
+
+
+                    <div class="bank-row">
+
+                        <strong>
+                            A/c Holder Name
+                        </strong>
+
+                        <span>
+                            Nexme Retailtech Private Limited
+                        </span>
+
+                    </div>
+
+
+                    <div class="bank-row">
+
+                        <strong>
+                            A/c No.
+                        </strong>
+
+                        <span>
+                            50200042352394
+                        </span>
+
+                    </div>
+
+
+                    <div class="bank-row">
+
+                        <strong>
+                            IFSC Code
+                        </strong>
+
+                        <span>
+                            HDFC0000330
+                        </span>
+
+                    </div>
+
+
+                    <div class="bank-row">
+
+                        <strong>
+                            Bank & Address
+                        </strong>
+
+                        <span>
+                            Hamilton Road, Kashmere Gate, Delhi-6
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="qr-section">
+
+                    <div class="qr-title">
+                        Scan & Pay
+                    </div>
+
+
+                    <div class="qr-section">
+
+    <h3>Scan & Pay</h3>
+
+    <img
+        src="./images/Qr%20Code.png"
+        alt="Scan & Pay QR Code"
+        class="qr-image"
+    >
+
+    <p>Scan QR to make payment</p>
+
+</div>
+
+
+                    <small>
+                        Scan QR to make payment
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="quotation-buttons">
+
+
+                <button
+                    class="whatsapp"
+                    onclick="shareWhatsApp()"
+                >
+                    🟢 Share on WhatsApp
+                </button>
+
+
+                <button
+                    class="download"
+                    onclick="downloadPDF()"
+                >
+                    ⬇ Save / Download PDF
+                </button>
+
+
+                <button
+                    class="print-quotation"
+                    onclick="printQuotation()"
+                >
+                    🖨 Print Quotation
+                </button>
+
+
+            </div>
+
+
+
+            <div class="quotation-note">
+
+                Thank you for considering
+                Peddle Plus One ERP.
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="app-footer">
+
+        Peddle Plus One ERP
+
+        <span>•</span>
+
+        Smart Pricing. Accurate Quotation.
+
+    </footer>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+}
+</script>
+</body>
+
+</html>

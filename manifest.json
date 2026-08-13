@@ -1,0 +1,17 @@
+{
+  "name": "Peddle Plus Pricing Calculator",
+  "short_name": "Peddle Plus",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F4F8FC",
+  "theme_color": "#D81B8C",
+  "description": "Peddle Plus One ERP pricing and quotation calculator.",
+  "icons": [
+    {
+      "src": "images/logo.png.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
